@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    // Output modern JavaScript (Vite handles browser compatibility)
+    "target": "ESNext",
+
+    // Use modern class field behavior (matches how Vite/Babel work)
+    "useDefineForClassFields": true,
+
+    // Use ES modules (required by Vite)
+    "module": "ESNext",
+
+    // Resolve imports like Node.js does
+    "moduleResolution": "Node",
+
+    // Enable all strict type-checking rules (recommended)
+    "strict": true,
+
+    // Do not transform JSX, let Vite handle it
+    "jsx": "preserve",
+
+    // Allow importing .json files
+    "resolveJsonModule": true,
+
+    // Ensure each file can be compiled independently (required by Vite)
+    "isolatedModules": true,
+
+    // Allow default imports from CommonJS modules (e.g. axios)
+    "esModuleInterop": true,
+
+    // Skip type checking of node_modules (faster builds)
+    "skipLibCheck": true,
+
+    // Do not emit JS files (Vite handles compilation)
+    "noEmit": true,
+
+    // Include Node.js global types (process, import.meta, etc.)
+    "types": ["node"]
+  },
+
+  // Files TypeScript should check
+  "include": [
+    "resources/**/*.ts",
+    "resources/**/*.tsx",
+    "resources/**/*.vue"
+  ]
+}
