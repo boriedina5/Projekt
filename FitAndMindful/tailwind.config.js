@@ -6,7 +6,13 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        anton: ['Anton', 'sans-serif'],
+        cardo: ['Cardo', 'serif'],
+        hk: ['HK Grotesk', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
