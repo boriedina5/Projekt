@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 
-<body class="bg-[#656d4a] min-h-screen flex flex-col text-[#f5f5f5]">
+<body class="bg-[#656d4a] min-h-screen flex flex-col text-[#f5f5f5] overflow-y-scroll">
             
         {{-- Navbar --}}
         <header class="px-6">

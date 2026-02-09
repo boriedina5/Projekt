@@ -89,11 +89,11 @@
                 <!-- Row 1 cards -->
                 <!-- foreach image, writes this card, insert image and its text -->
                 @foreach ([
-                    ['img' => 'WokoutPlansOffer.png', 'text' => 'Workout Plans'],
-                    ['img' => 'DietOffer.jpg', 'text' => 'Healthy receipes'],
-                    ['img' => 'MentalHealthOffer.jpg', 'text' => 'Mental Health']
+                    ['img' => 'WokoutPlansOffer.png', 'text' => 'Workout Plans', 'source' => 'workouts'],
+                    ['img' => 'DietOffer.jpg', 'text' => 'Healthy receipes', 'source' => 'recipes'],
+                    ['img' => 'MentalHealthOffer.jpg', 'text' => 'Mental Health', 'source' => 'MentalHealth']
                 ] as $image)
-                    <a href="#" class="flex flex-col items-center">
+                    <a href={{ $image['source'] }} class="flex flex-col items-center">
                         <img src="{{ asset('images/HomPage/'.$image['img']) }}"
                             class="w-[300px] h-[420px] object-cover rounded-[1.5rem]" />
                         <p class="font-hk text-[28px] text-[#f5f5f5] mt-4 text-center font-semibold">
@@ -105,8 +105,8 @@
                 <!-- Row 2 cards -->
                 <div class="col-span-3 flex justify-center gap-[12vw] mt-20">
                     @foreach ([
-                        ['img' => 'large-AdobeStock_334093559.jpeg', 'text' => 'Food Diary'],
-                        ['img' => 'journalOffer.jpg', 'text' => 'Journal']
+                        ['img' => 'large-AdobeStock_334093559.jpeg', 'text' => 'Food Diary', 'source' => 'foodDiary'],
+                        ['img' => 'journalOffer.jpg', 'text' => 'Journal', 'source' => 'journal']
                     ] as $image)
                         <a href="#" class="flex flex-col items-center">
                             <img src="{{ asset('images/HomPage/'.$image['img']) }}"
