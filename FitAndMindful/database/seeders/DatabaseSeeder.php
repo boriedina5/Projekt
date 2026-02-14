@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +17,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // 1. Roles
+        $roles = ['admin', 'user', 'coach', 'psychologist'];
+        // makes sure theres no more or less than unique roles existing, even if one is empty
+        // updateOrCreate(what to check if it exists, what to update if it does)
+        // here we only check if a role exists, if yes -> do nothing, else create lore
+        foreach ($roles as $role) {
+            Role::updateOrCreate(['role_type' => $role]);
+        }
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // admin
+        User::factory()
+            ->admin()
+            ->create([
+                'name' => 'Admin',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('Admin1234')
+            ]);
+
+        // fake users
+        // User::factory(20)
+        //     ->has(UserStat::factory())
+        //     ->has(Journal::factory(fake()->numberBetween(1, 5)))
+        //     ->has(FoodDiary::factory())
+        //     ->create();
     }
 }
