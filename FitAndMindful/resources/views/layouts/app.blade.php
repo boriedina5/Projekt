@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,10 @@
 </head>
 
 <body class="bg-[#656d4a] min-h-screen flex flex-col text-[#f5f5f5] overflow-y-scroll">
-            
+    <div class="">
+
         {{-- Navbar --}}
-        <header class="px-6">
+        <header class="px-6 scale-ms-50">
             @include('layouts.navbar')
         </header>
 
@@ -28,5 +30,7 @@
         {{-- Footer --}}
         @include('layouts.footer')
 
+    </div>
 </body>
+
 </html>

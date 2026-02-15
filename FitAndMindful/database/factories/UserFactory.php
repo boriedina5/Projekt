@@ -46,6 +46,14 @@ class UserFactory extends Factory
             ];
         });
     }
+        public function user()
+    {
+        return $this->state(function () {
+            return [
+                'role_id' => Role::where('role_type', 'user')->first()->id,
+            ];
+        });
+    }
 
     /**
      * Indicate that the model's email address should be unverified.

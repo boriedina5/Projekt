@@ -36,10 +36,12 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // fake users
-        // User::factory(20)
-        //     ->has(UserStat::factory())
-        //     ->has(Journal::factory(fake()->numberBetween(1, 5)))
-        //     ->has(FoodDiary::factory())
-        //     ->create();
+        User::factory()
+            ->user()
+            ->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+                'password' => Hash::make('password'),
+            ]);
     }
 }

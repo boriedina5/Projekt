@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,8 +20,7 @@ return new class extends Migration {
             $table->string('password');
             
             // restrict == cannot delete role if a user still has that role
-            $table->foreignId('role_id')->default(1)->constrained()->onDelete("restrict");
-
+            $table->foreignId('role_id')->default(Role::where('role_type', 'user')->first())->constrained()->onDelete("restrict");
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
