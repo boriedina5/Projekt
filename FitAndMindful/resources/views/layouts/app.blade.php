@@ -8,7 +8,7 @@
     <title>{{ config('app.name', 'App') }}</title>
 
     {{-- Fonts --}}
-    @include('layouts.fonts')
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cardo:wght@400;700&family=HK+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 
     {{-- Assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
@@ -23,7 +23,7 @@
         </header>
 
         {{-- Page content --}}
-        <main class="pt-[5vw] flex-grow">
+        <main class="mt-16 flex-grow mx-20 mb-28">
             @yield('content')
         </main>
 

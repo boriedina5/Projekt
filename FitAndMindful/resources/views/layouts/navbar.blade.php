@@ -6,7 +6,7 @@
     <div class="flex justify-center items-center space-x-10 uppercase h-full">
         <a href="{{ route('home') }}" class="font-cardo text-[19px] font-bold">Homepage</a>
         <a href="{{ route('workouts') }}" class="font-cardo text-[19px] font-bold">Workouts</a>
-        <a href="{{ route(name: 'workout-diary') }}" class="font-cardo text-[19px] font-bold">Workout Diary</a>
+        <a href="{{ route('workout-diary') }}" class="font-cardo text-[19px] font-bold">Workout Diary</a>
         <a href="{{ route('recipes') }}" class="font-cardo text-[19px] font-bold">Recipes</a>
         <a href="{{ route('food-diary') }}" class="font-cardo text-[19px] font-bold">Food Diary</a>
         <a href="{{ route('journal') }}" class="font-cardo text-[19px] font-bold">Journal</a>

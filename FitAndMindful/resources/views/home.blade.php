@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <div class="mr-20 ml-10 mb-28">
-
         <!-- Top Section: Left Text + Right Images -->
         <div class="flex flex-col lg:flex-row items-start justify-between">
 
@@ -35,13 +33,13 @@
 
             <!-- Right: Images -->
             <div class="flex flex-col mr-2">
-                <img src="{{ asset('images/HomPage/workout.jpg') }}" alt="Large Image"
+                <img src="{{ asset('images/HomePage/workout.jpg') }}" alt="Large Image"
                     class="w-[calc(100%-1vw)] h-auto object-cover rounded-[1.5rem] mt-14" />
 
                 <div class="flex gap-[1vw] mt-6">
-                    <img src="{{ asset('images/HomPage/diet.jpg') }}"
+                    <img src="{{ asset('images/HomePage/diet.jpg') }}"
                         class="w-[calc(50%-1vw)] h-[18vw] object-cover rounded-[1.5rem]" />
-                    <img src="{{ asset('images/HomPage/journal.jpg') }}"
+                    <img src="{{ asset('images/HomePage/journal.jpg') }}"
                         class="w-[calc(50%-1vw)] h-[18vw] object-cover rounded-[1.5rem] object-bottom" />
                 </div>
             </div>
@@ -68,12 +66,12 @@
 
             <!-- Images -->
             <div class="absolute top-0 left-[45%] -translate-x-[32px] -translate-y-[45px]">
-                <img src="{{ asset('images/HomPage/workoutPurpose.png') }}"
+                <img src="{{ asset('images/HomePage/workoutPurpose.png') }}"
                     class="w-[285px] h-[390px] object-cover rounded-[1.5rem]" />
             </div>
 
             <div class="absolute top-[10rem] left-[74%] -translate-x-[32px] -translate-y-[45px]">
-                <img src="{{ asset('images/HomPage/MentalHealthPurpose.jpg') }}"
+                <img src="{{ asset('images/HomePage/MentalHealthPurpose.jpg') }}"
                     class="w-[285px] h-[390px] object-cover rounded-[1.5rem]" />
             </div>
         </div>
@@ -94,7 +92,7 @@
                     ['img' => 'MentalHealthOffer.jpg', 'text' => 'Mental Health', 'source' => 'MentalHealth']
                 ] as $image)
                     <a href={{ $image['source'] }} class="flex flex-col items-center">
-                        <img src="{{ asset('images/HomPage/'.$image['img']) }}"
+                        <img src="{{ asset('images/HomePage/'.$image['img']) }}"
                             class="w-[300px] h-[420px] object-cover rounded-[1.5rem]" />
                         <p class="font-hk text-[28px] text-[#f5f5f5] mt-4 text-center font-semibold">
                             {{ $image['text'] }}
@@ -109,7 +107,7 @@
                         ['img' => 'journalOffer.jpg', 'text' => 'Journal', 'source' => 'journal']
                     ] as $image)
                         <a href="#" class="flex flex-col items-center">
-                            <img src="{{ asset('images/HomPage/'.$image['img']) }}"
+                            <img src="{{ asset('images/HomePage/'.$image['img']) }}"
                                 class="w-[300px] h-[420px] object-cover rounded-[1.5rem]" />
                             <p class="font-hk text-[28px] text-[#f5f5f5] mt-4 text-center font-semibold">
                                 {{ $image['text'] }}
