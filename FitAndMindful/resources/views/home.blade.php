@@ -8,7 +8,7 @@
             <!-- Left: Text Content -->
             <div class="flex flex-col items-start">
 
-                <!-- Invisible Logo (kept for structure if needed) -->
+                <!-- Invisible Logo (kept for structure) -->
                 <div class="flex items-center invisible">
                     <img src="{{ asset('images/Icons/FiT&Mindful logo.png') }}" alt="Logo" class="w-[28vw] max-w-[250px]" />
                     <h1 class="text-[#c2c5aa] text-[25.7px] font-anton transform scale-[1.2]">FIT&MINDFUL</h1>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- 2. Slide: Our Purpose -->
-        <div class="relative mt-48 ml-32">
+        <div class="relative mt-48 ml-28">
 
             <!-- Text -->
             <div class="max-w-[18vw] transform scale-[1.2]">
@@ -89,7 +89,7 @@
                 @foreach ([
                     ['img' => 'WokoutPlansOffer.png', 'text' => 'Workout Plans', 'source' => 'workouts'],
                     ['img' => 'DietOffer.jpg', 'text' => 'Healthy receipes', 'source' => 'recipes'],
-                    ['img' => 'MentalHealthOffer.jpg', 'text' => 'Mental Health', 'source' => 'MentalHealth']
+                    ['img' => 'MentalHealthOffer.jpg', 'text' => 'Mental Health', 'source' => 'mental-health']
                 ] as $image)
                     <a href={{ $image['source'] }} class="flex flex-col items-center">
                         <img src="{{ asset('images/HomePage/'.$image['img']) }}"
