@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('Admin1234')
             ]);
 
-        // fake users
+        // test user
         User::factory()
             ->user()
             ->create([
@@ -43,5 +43,10 @@ class DatabaseSeeder extends Seeder
                 'email' => 'test@example.com',
                 'password' => Hash::make('password'),
             ]);
+        
+        // fake users
+        User::factory(10)
+            ->user()
+            ->create();
     }
 }

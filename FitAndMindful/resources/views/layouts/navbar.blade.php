@@ -11,14 +11,13 @@
         <a href="{{ route('food-diary') }}" class="font-cardo text-[19px] font-bold">Food Diary</a>
         <a href="{{ route('journal') }}" class="font-cardo text-[19px] font-bold">Journal</a>
         <a href="{{ route('mental-health') }}" class="font-cardo text-[19px] font-bold">Mental Health</a>
-        @auth
+        @guest
+            <a href="{{ route('login') }}" class="font-cardo text-[19px] font-bold uppercase">Sign In</a>
+        @else
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="font-cardo text-[19px] font-bold uppercase">Logout</button>
             </form>
-        @else
-            <a href="{{ route('login') }}" class="font-cardo text-[19px] font-bold uppercase">Sign In</a>
-        @endauth
-
+        @endguest
     </div>
 </nav>
