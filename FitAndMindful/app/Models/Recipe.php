@@ -32,8 +32,10 @@ class Recipe extends Model
     This tells the framework how to handle the relationship between Recipes and Ingredients via the pivot table.
     */
     
-    public function ingredients(): HasMany {
-    return $this->hasMany(RecipeIngredient::class);
-    }
+    public function ingredients()
+{
+    return $this->belongsToMany(Ingredient::class, 'recipe_ingredients')
+                ->withPivot('amount');
+}
 
 }

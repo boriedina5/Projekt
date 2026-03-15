@@ -48,5 +48,12 @@ class DatabaseSeeder extends Seeder
         User::factory(10)
             ->user()
             ->create();
+
+        //Seederek meghívása
+        $this ->call([
+        IngredientSeeder::class,   
+        RecipeSeeder::class
+        ]);
     }
+
 }

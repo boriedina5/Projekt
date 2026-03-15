@@ -5,9 +5,10 @@ Laravel Website setup from git repo:
 - inside .env, set SESSION_DRIVER = "file"
 # Installations
 - still in FitAndMindful file
-- npm install
 - composer install (can take a few minutes or more)
+- npm install
 - php artisan key:generate
+- php artisan migrate:fresh --seed
 # Run server
 - still in FitAndMindful file
 - composer run dev

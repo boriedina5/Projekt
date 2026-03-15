@@ -16,7 +16,7 @@ return new class extends Migration
             
             $table->foreignId('recipe_id')->constrained()->onDelete('cascade');
             $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
-            $table->integer('amount');
+            $table->string('amount');
             
             $table->timestamps();
             $table->softDeletes();

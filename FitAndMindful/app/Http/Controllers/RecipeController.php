@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recipe;
+use App\Models\Recipe; 
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
+use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
@@ -13,7 +14,9 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        // Itt le kell kérni a recepteket, hogy a főoldal ne legyen üres!
+        $recipes = Recipe::all();
+        return view('recipes', compact('recipes'));
     }
 
     /**
@@ -35,9 +38,16 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
+   public function show($name)
     {
-        //
+    // A 'wholemeal-pita-bread'-ből 'wholemeal pita bread' lesz
+    $searchName = str_replace('-', ' ', $name);
+
+    $recipe = Recipe::with('ingredients')
+        ->where('name', 'like', $searchName)
+        ->firstOrFail();
+
+    return view('recipe-details', compact('recipe'));
     }
 
     /**
