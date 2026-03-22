@@ -1,42 +1,26 @@
 @extends('layouts.app')
-
 @section('content')
-
 <div class="flex justify-center min-h-screen py-16">
     <div class="flex flex-col gap-10 w-full max-w-3xl px-4">
 
-        <!--'img' - alapveten a public mappát használja-->
-        @foreach ([
-            ['id' => '','img' => 'wholemeal-pita-bread.png', 'title' => 'WHOLEMEAL PITA BREAD', 'subtitle' => 'Nutritional values in 4 pieces', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?', 'ingredients' => [], 'instructions' => [] ],
-            ['img' => 'riceCakeBars.png', 'title' => 'RICE CALKE BARS', 'subtitle' => 'Nutritional values in 1 portion', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'CreamOfCelery Soup.jpg', 'title' => 'CREAM OF CELERY SOUP', 'subtitle' => 'Nutritional values for 4 days', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'AppleSliceswithPeanutButter&Cinnamon.jpg', 'title' => 'APPLE SLICES WITH PEANUT BUTTER & CINNAMON', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'CottageCheese&Berries.jpeg', 'title' => 'COTTAGE CHEESE & BERRIES', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'HardBoiledEggs.jpg', 'title' => 'HARD-BOILED EGGS', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'Quinoa&ChickpeaSalad.jpg', 'title' => 'QUINOA & CHICKPEA SALAD', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'TurkeyandVeggieWrap(Whole Wheat).jpg', 'title' => 'TURKEY AND VEGGIE WRAP (WHOLE WHEAT)', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'SimpleLentilSoup.jpg', 'title' => 'SIMPLE LENTIL SOUP', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'BakedSalmonwithRoastedAsparagus&Sweet Potato.jpg', 'title' => 'BAKED SALMON WITH ROASTED ASPARAGUS & SWEET POTATO', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'ChickenBreastStirFrywithBrownRice.jpg', 'title' => 'CHICKEN BREAST STIR-FRY WITH BROWN RICE', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-            ['img' => 'TurkeyChili(Bean-Based).jpg', 'title' => 'TURKEY CHILI (BEAN-BASED)', 'subtitle' => 'Nutritional values', 'kcal' => '?', 'carb' => '?', 'protein' => '?', 'fats' => '?'],
-        ] as $card)
-        <a href="{{ route('recipe.show', ['name' => Str::slug($card['title'])]) }}">
+        @foreach ($recipes as $recipe)
+        <a href="{{ route('recipe.show', ['name' => Str::slug($recipe->name)]) }}">
             <div class="bg-[#f5f5f5] rounded-[50px] p-8 flex flex-row items-center justify-between shadow-sm">
                 
                 <div class="flex-1 pr-6">
                     <h2 class="font-cardo text-2xl font-bold text-[#000000] uppercase mb-1">
-                        {{ $card['title'] }}
+                        {{ $recipe->name }}
                     </h2>
                     
                     <p class="font-cardo text-lg text-[#000000] font-bold border-b border-[#c2c5aa] inline-block mb-4">
-                        {{ $card['subtitle'] }}
+                        Nutritional values
                     </p>
 
                     <div class="font-cardo text-[#000000] text-lg space-y-1">
-                        <p><strong>Kcal:</strong> {{ $card['kcal'] }}</p>
-                        <p><strong>Carb:</strong> {{ $card['carb'] }}</p>
-                        <p><strong>Protein:</strong> {{ $card['protein'] }}</p>
-                        <p><strong>Fats:</strong> {{ $card['fats'] }}</p>
+                        <p><strong>Kcal:</strong> {{ $recipe->recipe_kcal }}</p>
+                        <p><strong>Carb:</strong> {{ $recipe->recipe_ch }}g</p>
+                        <p><strong>Protein:</strong> {{ $recipe->recipe_protein }}g</p>
+                        <p><strong>Fats:</strong> {{ $recipe->recipe_fat }}g</p>
                     </div>
 
                     <div class="mt-6 opacity-20">
@@ -47,8 +31,10 @@
                 </div>
 
                 <div class="w-48 h-48 shrink-0">
-                    <img src="{{ asset('images/ReceipetPictures/'.$card['img']) }}" 
-                         class="rounded-[1.5rem] w-full h-full object-cover shadow-md"/>
+                    {{-- A kép nevét generáljuk a recept nevéből --}}
+                    <img src="{{ asset('images/ReceipetPictures/' . Str::slug($recipe->name) . '.png') }}" 
+                         class="rounded-[1.5rem] w-full h-full object-cover shadow-md"
+                         alt="{{ $recipe->name }}"/>
                 </div>
 
             </div>
@@ -57,5 +43,4 @@
 
     </div>
 </div>
-
 @endsection
