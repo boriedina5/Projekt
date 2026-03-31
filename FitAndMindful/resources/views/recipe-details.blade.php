@@ -66,8 +66,9 @@
 
     {{-- VISSZALÉPŐ GOMB - A kártya alatt 20px-re (mt-5) --}}
     <div class="w-full max-w-3xl flex justify-end mt-5">
-        <a href="{{ route('recipes.index') }}" class="bg-white rounded-full p-4 shadow-md hover:bg-gray-100 transition border border-gray-100">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="{{ route('recipes') }}"
+        class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-100 transition">
+            <svg class="w-7 h-7" fill="none" stroke="#c2c5aa" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" />
             </svg>
         </a>

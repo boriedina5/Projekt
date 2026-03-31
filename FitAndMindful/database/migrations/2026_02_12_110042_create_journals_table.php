@@ -14,11 +14,11 @@ return new class extends Migration {
             $table->id();
 
             $table->date("date");
-            $table->text("gratitudes");
-            $table->text("positive_things");
-            $table->text("negative_things");
-            $table->text("moods");
+            $table->text("grateful");
+            $table->text("positive");
+            $table->text("negative");
             $table->text("thoughts");
+
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
 

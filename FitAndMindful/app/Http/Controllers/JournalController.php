@@ -2,65 +2,95 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Journal;
-use App\Http\Requests\StoreJournalRequest;
-use App\Http\Requests\UpdateJournalRequest;
+use App\Models\Journal;       
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class JournalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Csak bejelentkezve érhető el
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    // Journal lista
     public function index()
     {
-        //
+    $journals = Journal::where('user_id', Auth::id())
+        ->whereNull('deleted_at')
+        ->orderBy('date', 'asc')
+        ->get();
+
+    return view('journal', compact('journals'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
+
+    // Új bejegyzés form
     public function create()
     {
-        //
+        return view('journal-create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreJournalRequest $request)
+    // Új bejegyzés mentése
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'date' => 'required',
+            'grateful' => 'required',
+            'positive' => 'required',
+            'negative' => 'required',
+            'thoughts' => 'required',
+        ]);
+
+        Journal::create([
+            'user_id' => Auth::id(),
+            'date' => $request->date,
+            'grateful' => $request->grateful,
+            'positive' => $request->positive,
+            'negative' => $request->negative,
+            'thoughts' => $request->thoughts,
+        ]);
+
+        return redirect()->route('journal');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Journal $journal)
+    // Szerkesztő oldal
+    public function edit($id)
     {
-        //
+        $journal = Journal::where('user_id', Auth::id())->findOrFail($id);
+        return view('journal-create', compact('journal'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Journal $journal)
+    // Frissítés
+    public function update(Request $request, $id)
     {
-        //
+    $request->validate([
+        'grateful' => 'required',
+        'positive' => 'required',
+        'negative' => 'required',
+        'thoughts' => 'required',
+    ]);
+
+    $journal = Journal::where('user_id', Auth::id())->findOrFail($id);
+
+    $journal->update([
+        'grateful' => $request->grateful,
+        'positive' => $request->positive,
+        'negative' => $request->negative,
+        'thoughts' => $request->thoughts,
+    ]);
+
+    return redirect()->route('journal');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateJournalRequest $request, Journal $journal)
+    // Törlés
+    public function destroy($id)
     {
-        //
-    }
+        $journal = Journal::where('user_id', Auth::id())->findOrFail($id);
+        $journal->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Journal $journal)
-    {
-        //
+        return redirect()->route('journal');
     }
 }
