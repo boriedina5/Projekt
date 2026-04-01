@@ -16,13 +16,13 @@ class Journal extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'date', 
-        'gratitudes', 
-        'positive_things', 
-        'negative_things', 
-        'moods', 
-        'thoughts', 
-        'user_id'];
+        'user_id',
+        'date',
+        'grateful',
+        'positive',
+        'negative',
+        'thoughts',
+    ];
     
     public function user(): BelongsTo {
     return $this->belongsTo(User::class);
