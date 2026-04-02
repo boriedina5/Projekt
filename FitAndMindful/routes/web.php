@@ -10,18 +10,19 @@ use App\Http\Controllers\ModuleController;
 use Illuminate\Support\Facades\Auth;
 
 // Home page
-Route::view('/', 'home')
-    ->name('home');
+Route::view('/', 'home')->name('home');
 
 // Workouts page
-Route::get('/workouts', [CategoryController::class, 'index'])
-    ->name('workouts.index');
+Route::get('/workouts', [CategoryController::class, 'index'])->name('workouts.index');
+
 // Plan selection (difficulty / version)
 Route::get('/workouts/{categoryName}/{selectedDifficulty?}', [PlanController::class, 'select'])
     ->name('plan.select');
+
 // Plan exercises page
 Route::get('/workouts/{categoryName}/{selectedDifficulty}/{versionName}', [ExerciseController::class, 'show'])
     ->name('plan.exercises');
+
 // Save completed plans
 Route::post('/done-workouts/{plan}/complete', [ExerciseController::class, 'complete'])
     ->middleware('auth')
@@ -47,7 +48,7 @@ Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
 Route::get('/recipes/{name}', [RecipeController::class, 'show'])->name('recipes.show');
 
 
-// Vendég → landing
+// JOURNAL – vendégnek landing, usernek redirect a listára
 Route::get('/journal', function () {
     if (!Auth::check()) {
         return view('journal-landing');
@@ -56,7 +57,7 @@ Route::get('/journal', function () {
 })->name('journal');
 
 
-// Bejelentkezett user → controller
+// JOURNAL – bejelentkezett user CRUD
 Route::middleware('auth')->group(function () {
 
     Route::get('/journal/list', [JournalController::class, 'index'])
@@ -74,9 +75,11 @@ Route::middleware('auth')->group(function () {
     Route::put('/journal/{id}/update', [JournalController::class, 'update'])
         ->name('journal.update');
 
+    // 🔥 A helyes törlés route — erre kell a DELETE mennie
     Route::delete('/journal/{id}/delete', [JournalController::class, 'destroy'])
-        ->name('journal.delete');
+        ->name('journal.destroy');
 });
+
 
 
 // Mentális egészség modulok (dinamikus aloldalak)
