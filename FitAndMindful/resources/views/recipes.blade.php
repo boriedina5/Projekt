@@ -4,9 +4,8 @@
     <div class="flex flex-col gap-10 w-full max-w-3xl px-4">
 
         @foreach ($recipes as $recipe)
-        <a href="{{ route('recipe.show', ['name' => Str::slug($recipe->name)]) }}">
+        <a href="{{ route('recipes.show', ['name' => Str::slug($recipe->name)]) }}">
             <div class="bg-[#f5f5f5] rounded-[50px] p-8 flex flex-row items-center justify-between shadow-sm">
-                
                 <div class="flex-1 pr-6">
                     <h2 class="font-cardo text-2xl font-bold text-[#000000] uppercase mb-1">
                         {{ $recipe->name }}
