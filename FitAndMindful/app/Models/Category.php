@@ -17,15 +17,10 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'user_id',
     ];
 
     public function plans(): HasMany
     {
         return $this->hasMany(Plan::class);
-    }
-    public function user()
-    {
-    return $this->belongsTo(User::class);
     }
 }
