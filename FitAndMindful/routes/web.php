@@ -6,6 +6,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\JournalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ModuleController;
 use Illuminate\Support\Facades\Auth;
 
 // Home page
@@ -28,7 +29,16 @@ Route::post('/done-workouts/{plan}/complete', [ExerciseController::class, 'compl
 
 Route::view('/workout-diary', 'workout-diary')->name('workout-diary');
 Route::view('/food-diary', 'food-diary')->name('food-diary');
-Route::view('/mental-health', 'mental-health')->name('mental-health');
+
+
+// MENTAL HEALTH – vendégnek landing, usernek rendes oldal
+Route::get('/mental-health', function () {
+    if (!Auth::check()) {
+        return view('mental-health-landing');
+    }
+    return view('mental-health');
+})->name('mental-health');
+
 
 // Recept lista oldal
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
@@ -37,31 +47,41 @@ Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
 Route::get('/recipes/{name}', [RecipeController::class, 'show'])->name('recipes.show');
 
 
-// Journal főoldal (vendég → landing, user → rendezett lista)
+// Vendég → landing
 Route::get('/journal', function () {
-
     if (!Auth::check()) {
         return view('journal-landing');
     }
-
-    // FONTOS: itt NEM fut saját lekérdezés,
-    // hanem a controller index metódusa
-    return redirect()->action([JournalController::class, 'index']);
-
+    return redirect()->route('journal.index');
 })->name('journal');
 
 
-// Journal csak bejelentkezve
+// Bejelentkezett user → controller
 Route::middleware('auth')->group(function () {
 
-    Route::get('/journal/create', [JournalController::class, 'create'])->name('journal.create');
-    Route::post('/journal/store', [JournalController::class, 'store'])->name('journal.store');
+    Route::get('/journal/list', [JournalController::class, 'index'])
+        ->name('journal.index');
 
-    Route::get('/journal/{id}/edit', [JournalController::class, 'edit'])->name('journal.edit');
-    Route::post('/journal/{id}/update', [JournalController::class, 'update'])->name('journal.update');
+    Route::get('/journal/create', [JournalController::class, 'create'])
+        ->name('journal.create');
 
-    Route::delete('/journal/{id}/delete', [JournalController::class, 'destroy'])->name('journal.delete');
+    Route::post('/journal/store', [JournalController::class, 'store'])
+        ->name('journal.store');
+
+    Route::get('/journal/{id}/edit', [JournalController::class, 'edit'])
+        ->name('journal.edit');
+
+    Route::put('/journal/{id}/update', [JournalController::class, 'update'])
+        ->name('journal.update');
+
+    Route::delete('/journal/{id}/delete', [JournalController::class, 'destroy'])
+        ->name('journal.delete');
 });
+
+
+// Mentális egészség modulok (dinamikus aloldalak)
+Route::get('/modules/{slug}', [ModuleController::class, 'show'])
+    ->name('modules.show');
 
 
 // Hitelesítés (Login, Register)
