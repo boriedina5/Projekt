@@ -16,10 +16,8 @@ return new class extends Migration
 
             $table->string('name');
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // A kategória a useré
-
             $table->timestamps();
-            $table->softDeletes();            
+            $table->softDeletes();
         });
     }
 
