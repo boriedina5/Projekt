@@ -1,13 +1,30 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Auth;
 
+// Home page
+Route::view('/', 'home')
+    ->name('home');
 
-// Alapoldalak
-Route::view('/', 'home')->name('home');
-Route::view('/workouts', 'workouts')->name('workouts');
+// Workouts page
+Route::get('/workouts', [CategoryController::class, 'index'])
+    ->name('workouts.index');
+// Plan selection (difficulty / version)
+Route::get('/workouts/{categoryName}/{selectedDifficulty?}', [PlanController::class, 'select'])
+    ->name('plan.select');
+// Plan exercises page
+Route::get('/workouts/{categoryName}/{selectedDifficulty}/{versionName}', [ExerciseController::class, 'show'])
+    ->name('plan.exercises');
+// Save completed plans
+Route::post('/done-workouts/{plan}/complete', [ExerciseController::class, 'complete'])
+    ->middleware('auth')
+    ->name('done-workouts.complete');
+
 Route::view('/workout-diary', 'workout-diary')->name('workout-diary');
 Route::view('/food-diary', 'food-diary')->name('food-diary');
 Route::view('/journal', 'journal')->name('journal');
