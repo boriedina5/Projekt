@@ -1,22 +1,43 @@
-<div class="flex items-center">
-    <img src="/images/Icons/FiT&Mindful logo.png" alt="Logo" class="max-w-[8vw]" />
-    <h1 class="text-[#c2c5aa] text-[30.8px] font-anton">FIT&MINDFUL</h1>
+<div class="flex items-center gap-2 sm:gap-3 md:gap-4">
+    <img src="/images/Icons/FiT&Mindful logo.png" alt="Logo" 
+         class="w-12 sm:w-12 md:w-16 lg:w-20 xl:w-24" />
+    <h1 class="text-[#c2c5aa] font-anton 
+        text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl">
+        FIT&MINDFUL
+    </h1>
 </div>
-<nav class="w-full bg-[#c2c5aa] text-[#f5f5f5] h-[67.2px] rounded-[2.4rem] max-w-[1382px] mx-auto">
-    <div class="flex justify-center items-center space-x-10 uppercase h-full">
-        <a href="{{ route('home') }}" class="font-cardo text-[19px] font-bold">Homepage</a>
-        <a href="{{ route('workouts') }}" class="font-cardo text-[19px] font-bold">Workouts</a>
-        <a href="{{ route('workout-diary') }}" class="font-cardo text-[19px] font-bold">Workout Diary</a>
-        <a href="{{ route('recipes') }}" class="font-cardo text-[19px] font-bold">Recipes</a>
-        <a href="{{ route('food-diary') }}" class="font-cardo text-[19px] font-bold">Food Diary</a>
-        <a href="{{ route('journal') }}" class="font-cardo text-[19px] font-bold">Journal</a>
-        <a href="{{ route('mental-health') }}" class="font-cardo text-[19px] font-bold">Mental Health</a>
+
+<nav class="w-full max-w-[86rem] mx-auto bg-[#c2c5aa] text-[#f5f5f5] 
+            p-3 sm:p-4 md:p-5 lg:p-6 rounded-xl sm:rounded-2xl lg:rounded-[3rem]">
+
+    <div class="flex flex-wrap justify-center items-center 
+        gap-2 sm:gap-3 md:gap-4 lg:gap-6 
+        uppercase">
+
+        <a href="{{ route('home') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Homepage</a>
+        <a href="{{ route('workouts.index') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Workouts</a>
+        <a href="{{ route('workout-diary') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Workout Diary</a>
+        <a href="{{ route('recipes') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Recipes</a>
+        <a href="{{ route('food-diary') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Food Diary</a>
+        <a href="{{ route('journal') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Journal</a>
+        <a href="{{ route('mental-health') }}"
+            class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl">Mental Health</a>
+
         @guest
-            <a href="{{ route('login') }}" class="font-cardo text-[19px] font-bold uppercase">Sign In</a>
+            <a href="{{ route('login') }}"
+                class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl uppercase">Sign In</a>
         @else
-            <form method="POST" action="{{ route('logout') }}">
+            <form method="POST" action="{{ route('logout') }}" class="flex items-center">
                 @csrf
-                <button type="submit" class="font-cardo text-[19px] font-bold uppercase">Logout</button>
+                <button type="submit" class="font-cardo font-bold text-base sm:text-base md:text-lg lg:text-xl uppercase">
+                    Logout
+                </button>
             </form>
         @endguest
     </div>
