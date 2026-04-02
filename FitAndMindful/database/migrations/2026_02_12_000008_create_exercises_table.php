@@ -13,19 +13,16 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('exercise_name');
-            $table->integer('beginner_repeat');
-            $table->integer('intermediate_repeat'); 
-            $table->integer('advanced_repeat');     
-            $table->string('quantity_type');
-            $table->string('level');                
-            
-            $table->foreignId('plan_id')->constrained()->onDelete('cascade'); // A gyakorlat a tervé
-            
+            $table->integer('quantity')->nullable(); // number of reps or seconds
+            $table->string('quantity_type'); // 'rep', 'sec', 'each'
+            $table->string('img');
+
+            $table->foreignId('plan_id')->constrained()->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
-          
         });
     }
 

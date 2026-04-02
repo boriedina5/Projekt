@@ -1,33 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="flex justify-center">
-    <div class="inline-grid grid-flow-row gap-x-10 gap-y-24 mt-16" style="grid-template-columns: repeat(3, 22rem);">
+    <div class="grid 
+                gap-x-4 sm:gap-x-6 lg:gap-x-8   <!-- responsive horizontal gap -->
+                gap-y-16 mt-16
+                grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+                justify-items-center">
 
-        @foreach ([
-            ['img' => 'loseWeight.jpg', 'route' => '', 'row1' => 'PLAN FOR', 'row2' => 'LOSE WEIGHT', 'cardClasses' => '', 'imgClasses' => ''],
-            ['img' => 'toneYourBody.jpeg', 'route' => '', 'row1' => 'PLAN FOR', 'row2' => 'TONE YOUR BODY', 'cardClasses' => '', 'imgClasses' => ''],
-            ['img' => 'buildMuscles.jpg', 'route' => '', 'row1' => 'PLAN FOR', 'row2' => 'BUILD MUSCLES', 'cardClasses' => '', 'imgClasses' => ''],
-            ['img' => 'mobilization.jpg', 'route' => '', 'row1' => '', 'row2' => 'MOBILIZATION', 'cardClasses' => '', 'imgClasses' => ''],
-            ['img' => 'morningStretch.jpg', 'route' => '', 'row1' => '', 'row2' => "MORNING\nSTRETCHING", 'cardClasses' => '', 'imgClasses' => ''],
-            ['img' => 'dailyMovement.jpg', 'route' => '', 'row1' => '', 'row2' => 'DAILY MOVEMENT', 'cardClasses' => '', 'imgClasses' => 'blur-sm']
-        ] as $card)
+        @foreach($categories as $category)
+            @php
+                $meta = $categoryMeta[$category->name] ?? [];
+            @endphp
 
-            <div class="bg-[#f5f5f5] w-88 h-88 text-center flex flex-col p-4 rounded-[50px] {{ $card['cardClasses'] }}">
-                <div class="mb-4">
-                    <p class="font-cardo text-3xl text-[#c2c5aa]">{{ $card['row1'] }}</p>
-                    <p class="font-cardo text-3xl font-bold text-[#c2c5aa] whitespace-pre-line">{{ $card['row2'] }}</p>
+            <!-- Entire card as link -->
+            <a href="{{ route('plan.select', ['categoryName' => $category->name]) }}"
+               class="block w-72 h-72 sm:w-80 sm:h-80 lg:w-[22rem] lg:h-[22rem]">
+                <div class="bg-[#f5f5f5] flex flex-col justify-between p-4 rounded-[50px] h-full">
+
+                    <!-- Text section -->
+                    <div class="text-center space-y-1">
+                        @if(!empty($meta['row1']))
+                            <p class="font-cardo text-2xl sm:text-2xl lg:text-3xl text-[#c2c5aa]">
+                                {{ $meta['row1'] }}
+                            </p>
+                        @endif
+                        <p class="font-cardo font-bold text-2xl sm:text-2xl lg:text-3xl text-[#c2c5aa]">
+                            {{ strtoupper($category->name) }}
+                        </p>
+                    </div>
+
+                    <!-- Image section (scaled proportionally) -->
+                    <div class="mx-auto w-[70%] aspect-square">
+                        <img src="{{ asset('images/Workouts/PlansCover/' . ($meta['img'] ?? 'default.jpg')) }}"
+                             class="rounded-[1.5rem] w-full h-full object-cover" />
+                    </div>
+
                 </div>
-                
-                <a href="{{ $card['route'] }}" class="mt-auto mx-auto w-60 aspect-square block mb-4">
-                    <img src="{{ asset('images/Workouts/PlansCover/'.$card['img']) }}"
-                         class="rounded-[1.5rem] w-full h-full object-cover {{ $card['imgClasses'] }}"/>
-                </a>
-            </div>
+            </a>
+
         @endforeach
 
     </div>
 </div>
-
 @endsection
