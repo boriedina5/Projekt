@@ -2,65 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exercise;
-use App\Http\Requests\StoreExerciseRequest;
-use App\Http\Requests\UpdateExerciseRequest;
+use App\Models\Category;
+use App\Models\DoneWorkout;
+use App\Models\Plan;
+use Illuminate\Support\Facades\Auth;
 
 class ExerciseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function show($categoryName, $difficulty, $versionName)
     {
-        //
+        $category = Category::where('name', $categoryName)->firstOrFail();
+
+        // Standardize difficulty if null or empty
+        $selectedDifficulty = $difficulty ?: 'Standard';
+
+        // Restrict access by guest/auth
+        if (auth()->guest() && $versionName !== 'Guest') {
+            abort(403, "Guests can't access this plan.");
+        }
+
+        if (auth()->check() && $versionName === 'Guest') {
+            abort(403, "Authenticated users can't access guest plans.");
+        }
+
+        $plan = Plan::where('category_id', $category->id)
+            ->where('difficulty', $selectedDifficulty)
+            ->where('version', $versionName)
+            ->firstOrFail();
+
+        $exercises = $plan->exercises;
+
+        return view('plan-exercises', compact('category', 'plan', 'exercises'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mark a plan as completed.
      */
-    public function create()
+    public function complete(Plan $plan)
     {
-        //
-    }
+        $user = Auth::user();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreExerciseRequest $request)
-    {
-        //
-    }
+        // Only proceed if user is logged in
+        if (!$user) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Exercise $exercise)
-    {
-        //
-    }
+        // Check if already marked as done
+        $exists = DoneWorkout::where('user_id', $user->id)
+            ->where('plan_id', $plan->id)
+            ->exists();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Exercise $exercise)
-    {
-        //
-    }
+        if (!$exists) {
+            DoneWorkout::create([
+                'user_id' => $user->id,
+                'plan_id' => $plan->id,
+                'completed_at' => now(),
+            ]);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateExerciseRequest $request, Exercise $exercise)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Exercise $exercise)
-    {
-        //
+        return response()->json(['message' => 'Plan marked as completed']);
     }
 }
