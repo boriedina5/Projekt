@@ -330,36 +330,36 @@ class ExerciseSeeder extends Seeder
             'Mobilization' => [
                 'Standard' => [
                     'Guest' => [
-                        ['name' => 'Cat-Cow', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Supine Hip Internal & External Rotation', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => '90/90 Hip Switch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Half Kneeling Hip Flexor', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Thoracic Spine Rotation', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Shoulder Controlled Articular Rotations', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Cat-Cow', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Supine Hip Internal & External Rotation', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => '90/90 Hip Switch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Half Kneeling Hip Flexor', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Thoracic Spine Rotation', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Shoulder Controlled Articular Rotations', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Upper body' => [
-                        ['name' => 'Arm and Shoulder Circles', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Chest Opener', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Wrist Rotations', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Scapular Push-Ups', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Crossover Shoulder Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Neck Circles', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Arm and Shoulder Circles', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Chest Opener', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Wrist Rotations', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Scapular Push-Ups', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Crossover Shoulder Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Neck Circles', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Lower body' => [
-                        ['name' => 'Hip Circles', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Ankle Rotations', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Dynamic Hamstring Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Knee Flexion and Extension', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Butterfly Stretch (Dynamic)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Lateral Lunge Stretch (Side to Side)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Hip Circles', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Ankle Rotations', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Dynamic Hamstring Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Knee Flexion and Extension', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Butterfly Stretch (Dynamic)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Lateral Lunge Stretch (Side to Side)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Full Body' => [
-                        ['name' => 'Cat-Cow Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Kneeling Torso Rotations', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'World\'s Greatest Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Side Bends (Standing)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Inchworm', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Overhead Reach and Back Bend', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Cat-Cow Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Kneeling Torso Rotations', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'World\'s Greatest Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Side Bends (Standing)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Inchworm', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Overhead Reach and Back Bend', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                 ],
             ],
@@ -374,38 +374,43 @@ class ExerciseSeeder extends Seeder
                         ['name' => 'Neck Stretch', 'quantity' => 60, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Upper body' => [
-                        ['name' => 'Chest Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Overhead Triceps Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Cross-Body Shoulder Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Lat Stretch (Hanging/Seated Bend)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Forearm Flexor/Extensor Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Bicep Stretch (Wall/Corner)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Chest Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Overhead Triceps Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Cross-Body Shoulder Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Lat Stretch (Hanging/Seated Bend)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Forearm Flexor/Extensor Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Bicep Stretch (Wall/Corner)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Lower body' => [
-                        ['name' => 'Seated Hamstring Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Standing/Kneeling Quad Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Figure-Four / Piriformis Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Calf Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Hip Flexor Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Seated Wide-Leg Straddle Stretch', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Seated Hamstring Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Standing/Kneeling Quad Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Figure-Four / Piriformis Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Calf Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Hip Flexor Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Seated Wide-Leg Straddle Stretch', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                     'Full Body' => [
-                        ['name' => 'Child\'s Pose', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Supine Spinal Twist', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Downward-Facing Dog', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Eagle Arms', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Neck Side Tilts', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
-                        ['name' => 'Full Body Stretch (Supine)', 'quantity' => 10, 'quantity_type' => 'rep', 'img' => ' '],
+                        ['name' => 'Child\'s Pose', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Supine Spinal Twist', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Downward-Facing Dog', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Eagle Arms', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Neck Side Tilts', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
+                        ['name' => 'Full Body Stretch (Supine)', 'quantity' => 10, 'quantity_type' => 'sec', 'img' => ' '],
                     ],
                 ],
             ],
         ];
 
+        // Returns the correct image path for a given exercise.
         function exerciseImagePath($exerciseName, $isGuest = false)
         {
+            // Enable debug mode for logging missing images
             $debug = false;
+
+            // Normalize exercise name: lowercase, trimmed
             $normalized = strtolower(trim($exerciseName));
 
+            // Guest mapping: exercise -> image filename
             $guestMapping = [
                 'jumping jacks' => 'jumping_jacks.png',
                 'knee-to-elbow' => 'knee_to_elbow.png',
@@ -468,6 +473,7 @@ class ExerciseSeeder extends Seeder
                 'neck stretch' => 'Neck_Stretch.jpg',
             ];
 
+            // Authenticated user mapping
             $authMapping = [
                 'ankle rotations' => 'Feet-and-Ankle-Rotation.gif',
                 'arm and shoulder circles' => 'arm-circles.jpg',
@@ -557,24 +563,28 @@ class ExerciseSeeder extends Seeder
                 'lateral lunge stretch (side to side)' => 'side-lunge-stretch.jpg'
             ];
 
+            // Choose mapping based on user type
             $mapping = $isGuest ? $guestMapping : $authMapping;
 
+            // Find image filename; null if not found
             $filename = $mapping[$normalized] ?? null;
 
+            // Determine folder based on guest/auth
             $folder = $isGuest ? 'forVisitors' : 'forUsers';
 
-            // If not found → return default immediately
+            // If exercise not found -> return default
             if (!$filename) {
                 if ($debug) {
-                    if ($isGuest) echo "[WARNING] '{$normalized}' from [Guest] not found → using default\n";
-                    else echo "[WARNING] '{$normalized}' from [Auth] not found → using default\n";
+                    $userType = $isGuest ? 'Guest' : 'Auth';
+                    echo "[WARNING] '{$normalized}' from [{$userType}] not found → using default\n";
                 }
                 return "images/Workouts/Exercieses/{$folder}/default.jpg";
             }
 
+            // Build full file path
             $path = public_path("images/Workouts/Exercieses/{$folder}/{$filename}");
 
-            // Only check existence for real files
+            // If file does not exist -> fallback to default
             if (!file_exists($path)) {
                 if ($debug) {
                     echo "[ERROR] File missing: {$filename}\n";
