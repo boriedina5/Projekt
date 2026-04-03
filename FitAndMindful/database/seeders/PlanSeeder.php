@@ -4,15 +4,13 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Plan;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PlanSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed plans for all categories.
      */
-
     public function run(): void
     {
         $plans = [
@@ -100,7 +98,6 @@ class PlanSeeder extends Seeder
 
         foreach ($plans as $categoryName => $difficulties) {
             $category = Category::where('name', $categoryName)->first();
-            
             if (!$category) {
                 echo "Warning: Category not found - {$categoryName}\n";
                 continue;
@@ -108,6 +105,7 @@ class PlanSeeder extends Seeder
 
             foreach ($difficulties as $difficulty => $versions) {
                 foreach ($versions as $versionName => $versionData) {
+                    // Create or update plan
                     Plan::updateOrCreate(
                         [
                             'category_id' => $category->id,

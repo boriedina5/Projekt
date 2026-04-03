@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Exercise extends Model
 {
-    /** @use HasFactory<\Database\Factories\ExerciseFactory> */
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
@@ -19,14 +18,16 @@ class Exercise extends Model
         'quantity_type',
         'img'
     ];
-    protected $appends = ['formatted_quantity'];
 
+    // Append a computed attribute for formatted quantity
+    protected $appends = ['formatted_quantity'];
 
     public function plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);
     }
 
+    // Return quantity formatted with unit or "each" if needed
     public function getFormattedQuantityAttribute()
     {
         if (!$this->quantity) return '';
